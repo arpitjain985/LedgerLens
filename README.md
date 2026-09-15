@@ -61,7 +61,7 @@ database migrations, and 138 automated tests.
 | **Login** | ![Login](docs/screenshots/login.png) |
 | **Statements — classified & risk-scored** | ![Statements](docs/screenshots/statements.png) |
 | **Dashboard** | ![Dashboard](docs/screenshots/dashboard.png) |
-| **GST & Invoices** | ![GST & Invoices](docs/screenshots/gst-invoices.png) |
+| **GST & Invoices** | ![GST & Invoices](docs/screenshots/gst-invoice.png) |
 | **Ask LedgerLens** | ![Ask LedgerLens](docs/screenshots/ask-ledgerlens.png) |
 | **Team management** | ![Team](docs/screenshots/team.png) |
 
