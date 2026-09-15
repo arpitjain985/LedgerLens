@@ -1,0 +1,24 @@
+{
+  "ledger_heads": [
+    {"code": "SALARY", "label": "Salary & Wages", "examples": ["salary credit", "payroll", "monthly salary", "wages paid", "staff salary transfer"]},
+    {"code": "RENT", "label": "Rent Expense", "examples": ["office rent", "rent paid to landlord", "monthly rent debit", "shop rent", "premises rent"]},
+    {"code": "VENDOR_PAYMENT", "label": "Vendor / Supplier Payment", "examples": ["payment to supplier", "vendor invoice payment", "purchase payment", "material supplier payout"]},
+    {"code": "SALES_RECEIPT", "label": "Sales Receipt / Customer Payment", "examples": ["customer payment received", "sales invoice receipt", "payment received from client", "UPI collection from customer"]},
+    {"code": "GST_PAYMENT", "label": "GST Payment", "examples": ["GST challan payment", "GSTR3B tax paid", "goods and services tax remittance"]},
+    {"code": "TDS_PAYMENT", "label": "TDS Payment", "examples": ["TDS challan", "tax deducted at source remittance", "TDS payment to income tax department"]},
+    {"code": "BANK_CHARGES", "label": "Bank Charges & Fees", "examples": ["bank charges debited", "processing fee", "SMS alert charges", "cheque bounce charges", "annual maintenance charge"]},
+    {"code": "INTEREST_INCOME", "label": "Interest Income", "examples": ["interest credited", "FD interest received", "savings account interest"]},
+    {"code": "LOAN_EMI", "label": "Loan EMI", "examples": ["EMI debit", "loan installment payment", "auto debit loan repayment"]},
+    {"code": "INSURANCE_PREMIUM", "label": "Insurance Premium", "examples": ["insurance premium paid", "policy premium debit", "LIC premium", "health insurance payment"]},
+    {"code": "UTILITY_BILLS", "label": "Utility Bills", "examples": ["electricity bill payment", "water bill", "internet bill", "telephone bill payment"]},
+    {"code": "TRAVEL_EXPENSE", "label": "Travel & Conveyance", "examples": ["flight booking payment", "cab fare", "fuel expense", "travel reimbursement"]},
+    {"code": "PROFESSIONAL_FEES", "label": "Professional Fees", "examples": ["CA fees paid", "legal consultation fee", "audit fee payment", "consultant payment"]},
+    {"code": "OFFICE_SUPPLIES", "label": "Office Supplies & Maintenance", "examples": ["stationery purchase", "office maintenance", "repair and maintenance expense"]},
+    {"code": "CAPITAL_EXPENDITURE", "label": "Capital Expenditure / Asset Purchase", "examples": ["machinery purchase", "equipment purchase", "computer purchase", "furniture purchase"]},
+    {"code": "DIVIDEND", "label": "Dividend Payment/Receipt", "examples": ["dividend paid to shareholders", "dividend received", "dividend distribution"]},
+    {"code": "CASH_WITHDRAWAL", "label": "Cash Withdrawal", "examples": ["ATM withdrawal", "self cash withdrawal", "cash withdrawn at branch"]},
+    {"code": "CASH_DEPOSIT", "label": "Cash Deposit", "examples": ["cash deposited", "cash deposit machine transaction"]},
+    {"code": "INTERNAL_TRANSFER", "label": "Internal / Inter-account Transfer", "examples": ["transfer to own account", "fund transfer between accounts", "sweep transfer"]},
+    {"code": "REFUND", "label": "Refund Received/Issued", "examples": ["refund credited", "amount refunded to customer", "return of excess payment"]}
+  ]
+}

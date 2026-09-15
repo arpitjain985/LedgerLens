@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.Python
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets -- NEVER commit real credentials
+.env
+
+# Database files (local SQLite dev DB)
+*.db
+*.sqlite3
+
+# Uploaded files (user data, not source)
+uploaded_files/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Alembic (migration files themselves ARE committed -- this only ignores
+# alembic's own cache, not alembic/versions/*.py)
+alembic/**/__pycache__/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

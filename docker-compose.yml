@@ -1,0 +1,53 @@
+version: "3.9"
+
+# Production-style local setup: app + PostgreSQL, both with health checks
+# (Section 37) so `docker compose up` gives you a genuinely working
+# multi-container environment, not just two containers that happen to be
+# running.
+#
+# IMPORTANT — read before using this for anything beyond local testing:
+# the POSTGRES_PASSWORD and JWT_SECRET_KEY below have placeholder defaults.
+# Section 22 (Security) is explicit that secrets don't belong in source
+# code — for anything beyond your own machine, override these via a local
+# `.env` file (docker compose reads it automatically) or your deployment
+# platform's secrets manager, never by editing this file directly.
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ledgerlens_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme-in-production}
+      POSTGRES_DB: ${POSTGRES_DB:-ledgerlens}
+    volumes:
+      - ledgerlens_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ledgerlens_user} -d ${POSTGRES_DB:-ledgerlens}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"  # remove/comment this out if you don't need host access to the DB directly
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-ledgerlens_user}:${POSTGRES_PASSWORD:-changeme-in-production}@db:5432/${POSTGRES_DB:-ledgerlens}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-changeme-in-production-use-a-long-random-string}
+      JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-60}
+      LLM_PROVIDER: ${LLM_PROVIDER:-none}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      OCR_ENGINE: ${OCR_ENGINE:-tesseract}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ledgerlens_uploads:/app/uploaded_files
+
+volumes:
+  ledgerlens_pgdata:
+  ledgerlens_uploads:

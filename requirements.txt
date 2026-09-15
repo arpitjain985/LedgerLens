@@ -1,0 +1,43 @@
+# --- Backend ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.9  # PostgreSQL driver -- only needed if DATABASE_URL points at Postgres, not SQLite
+PyJWT==2.9.0
+bcrypt==4.2.0
+email-validator==2.2.0  # required by pydantic's EmailStr in routers/auth.py
+slowapi==0.1.10  # rate limiting on /auth/login and /auth/register
+alembic==1.13.3  # database schema migrations -- see alembic/README.md for usage
+python-multipart==0.0.9
+pydantic==2.9.2
+
+# --- PDF parsing & OCR ---
+pdfplumber==0.11.4
+pdf2image==1.17.0
+pytesseract==0.3.13
+PyMuPDF
+# NOTE: pdf2image and pytesseract also require system packages:
+#   sudo apt-get install poppler-utils tesseract-ocr
+# (see README.md "System dependencies" section)
+
+# --- Classification ---
+sentence-transformers==3.1.1
+rapidfuzz==3.10.0
+numpy==1.26.4
+
+# --- LLM fallback (pick what you use; both are lightweight to keep installed) ---
+groq==0.11.0
+openai==1.51.0
+
+# --- Excel export ---
+openpyxl==3.1.5
+
+# --- Frontend ---
+streamlit==1.39.0
+requests==2.32.3
+
+# --- Dev/testing ---
+python-dotenv==1.0.1
+pytest==8.3.3
+httpx==0.27.2  # required by fastapi.testclient.TestClient
+reportlab==4.2.5  # only used by tests/test_phase2_integration.py to generate test PDFs
